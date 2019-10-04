@@ -55,7 +55,7 @@ class LibraryHelperTest {
     }
 
     @Test
-    void getExpressionDefByName_Null() {
+    public void getExpressionDefByName_Null() {
         ExpressionDef expression = LibraryHelper.getExpressionDefByName(library, null);
         assertNull(expression);
 
@@ -64,19 +64,19 @@ class LibraryHelperTest {
     }
 
     @Test
-    void getExpressionDefByName_Invalid() {
+    public void getExpressionDefByName_Invalid() {
         ExpressionDef expression = LibraryHelper.getExpressionDefByName(library, "Invalid Expression Name");
         assertNull(expression);
     }
 
     @Test
-    void getExpressionDefByName_Valid() {
+    public void getExpressionDefByName_Valid() {
         ExpressionDef expression = LibraryHelper.getExpressionDefByName(library, "Exists direct condition");
         assertNotNull(expression);
     }
 
     @Test
-    void generateInclusionRule_ExistsDirectCondition() throws Exception {
+    public void generateInclusionRule_ExistsDirectCondition() throws Exception {
         ExpressionDef expression = LibraryHelper.getExpressionDefByName(library, "Exists direct condition");
         InclusionRule rule = LibraryHelper.generateInclusionRule(library, expression.getExpression(), conceptSets);
         assertNotNull(rule);
@@ -85,7 +85,7 @@ class LibraryHelperTest {
     }
 
     @Test
-    void generateInclusionRule_ExistsFromExpression() throws Exception {
+    public void generateInclusionRule_ExistsFromExpression() throws Exception {
         ExpressionDef expression = LibraryHelper.getExpressionDefByName(library, "Exists from expression");
         InclusionRule rule = LibraryHelper.generateInclusionRule(library, expression.getExpression(), conceptSets);
         assertNotNull(rule);
@@ -94,7 +94,7 @@ class LibraryHelperTest {
     }
 
     @Test
-    void generateInclusionRule_ExistsFromReferencedExpression() throws Exception {
+    public void generateInclusionRule_ExistsFromReferencedExpression() throws Exception {
         ExpressionDef expression = LibraryHelper.getExpressionDefByName(library, "Exists from referenced expression");
         InclusionRule rule = LibraryHelper.generateInclusionRule(library, expression.getExpression(), conceptSets);
         assertNotNull(rule);
@@ -103,7 +103,7 @@ class LibraryHelperTest {
     }
 
     @Test
-    void generateInclusionRule_OrDirectConditions() throws Exception {
+    public void generateInclusionRule_OrDirectConditions() throws Exception {
         ExpressionDef expression = LibraryHelper.getExpressionDefByName(library, "Or direct conditions");
         InclusionRule rule = LibraryHelper.generateInclusionRule(library, expression.getExpression(), conceptSets);
         assertNotNull(rule);
@@ -112,7 +112,7 @@ class LibraryHelperTest {
     }
 
     @Test
-    void generateInclusionRule_BooleanFromExpressions() throws Exception {
+    public void generateInclusionRule_BooleanFromExpressions() throws Exception {
         ExpressionDef expression = LibraryHelper.getExpressionDefByName(library, "Or from expressions");
         InclusionRule rule = LibraryHelper.generateInclusionRule(library, expression.getExpression(), conceptSets);
         assertNotNull(rule);
@@ -127,7 +127,7 @@ class LibraryHelperTest {
     }
 
     @Test
-    void generateInclusionRule_OrMixedDirectAndExpression() throws Exception {
+    public void generateInclusionRule_OrMixedDirectAndExpression() throws Exception {
         ExpressionDef expression = LibraryHelper.getExpressionDefByName(library, "Or mixed direct and expression");
         InclusionRule rule = LibraryHelper.generateInclusionRule(library, expression.getExpression(), conceptSets);
         assertNotNull(rule);
@@ -136,7 +136,7 @@ class LibraryHelperTest {
     }
 
     @Test
-    void generateInclusionRule_OrFromReferencedExpressions() throws Exception {
+    public void generateInclusionRule_OrFromReferencedExpressions() throws Exception {
         ExpressionDef expression = LibraryHelper.getExpressionDefByName(library, "Or from referenced expressions");
         InclusionRule rule = LibraryHelper.generateInclusionRule(library, expression.getExpression(), conceptSets);
         assertNotNull(rule);
@@ -145,7 +145,7 @@ class LibraryHelperTest {
     }
 
     @Test
-    void generateInclusionRule_CountDirectCondition() throws Exception {
+    public void generateInclusionRule_CountDirectCondition() throws Exception {
         ExpressionDef expression = LibraryHelper.getExpressionDefByName(library, "Greater than direct condition");
         InclusionRule rule = LibraryHelper.generateInclusionRule(library, expression.getExpression(), conceptSets);
         assertNotNull(rule);
@@ -178,13 +178,13 @@ class LibraryHelperTest {
     }
 
     @Test
-    void generateInclusionRule_CountFromExpression_Invalid() throws Exception {
+    public void generateInclusionRule_CountFromExpression_Invalid() throws Exception {
         ExpressionDef expression = LibraryHelper.getExpressionDefByName(library, "Count from expression");
         assertThrows(Exception.class, () -> LibraryHelper.generateInclusionRule(library, expression.getExpression(), conceptSets));
     }
 
     @Test
-    void generateInclusionRule_CountExpressionReference() throws Exception {
+    public void generateInclusionRule_CountExpressionReference() throws Exception {
         ExpressionDef expression = LibraryHelper.getExpressionDefByName(library, "Count expression reference");
         InclusionRule rule = LibraryHelper.generateInclusionRule(library, expression.getExpression(), conceptSets);
         assertNotNull(rule);
